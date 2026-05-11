@@ -16,15 +16,17 @@ import { useState } from 'react';
 
 // --- Components ---
 
+const PHONE = '917993189034';
+
 const Navbar = () => (
   <header className="fixed top-0 w-full z-50 bg-brand-surface/80 backdrop-blur-md border-b border-brand-outline/30 flex justify-between items-center px-6 md:px-12 h-20">
     <div className="flex items-center gap-2">
       <Dumbbell className="text-brand-red w-8 h-8" />
       <span className="font-headline text-xl md:text-2xl font-extrabold text-white tracking-tighter">BEASTLINE</span>
     </div>
-    <button className="bg-brand-red text-white font-bold text-sm px-6 py-2.5 rounded-full hover:brightness-110 transition-all active:scale-95">
+    <a href={`tel:+${PHONE}`} className="bg-brand-red text-white font-bold text-sm px-6 py-2.5 rounded-full hover:brightness-110 transition-all active:scale-95">
       CALL NOW
-    </button>
+    </a>
   </header>
 );
 
@@ -53,14 +55,19 @@ const Hero = () => (
       </p>
       
       <div className="flex flex-col sm:flex-row gap-4 pt-4">
-        <button className="bg-brand-red text-white font-bold px-8 py-4 rounded-full flex justify-center items-center gap-2 hover:brightness-110 transition-all active:scale-95 shadow-xl shadow-brand-red/10">
+        <a href={`tel:+${PHONE}`} className="bg-brand-red text-white font-bold px-8 py-4 rounded-full flex justify-center items-center gap-2 hover:brightness-110 transition-all active:scale-95 shadow-xl shadow-brand-red/10">
           <Phone className="w-5 h-5" />
           Call Now
-        </button>
-        <button className="bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold px-8 py-4 rounded-full flex justify-center items-center gap-2 hover:bg-white/20 transition-all active:scale-95">
+        </a>
+        <a
+          href={`https://wa.me/${PHONE}?text=Hi%2C%20I%27m%20interested%20in%20joining%20BEASTLINE%20Gym!`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold px-8 py-4 rounded-full flex justify-center items-center gap-2 hover:bg-white/20 transition-all active:scale-95"
+        >
           <MessageCircle className="w-5 h-5 text-[#25D366]" />
           WhatsApp
-        </button>
+        </a>
       </div>
     </motion.div>
   </section>
