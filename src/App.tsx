@@ -16,7 +16,7 @@ import { useState } from 'react';
 
 // --- Components ---
 
-const PHONE = '917993189034';
+const PHONE = '919393936781';
 
 const Navbar = () => (
   <header className="fixed top-0 w-full z-50 bg-brand-surface/80 backdrop-blur-md border-b border-brand-outline/30 flex justify-between items-center px-6 md:px-12 h-20">
@@ -30,13 +30,15 @@ const Navbar = () => (
   </header>
 );
 
-const Hero = () => (
+const Hero = () => {
+  const base = import.meta.env.BASE_URL;
+  return (
   <section className="relative min-h-[90vh] flex flex-col justify-end px-6 md:px-12 pb-16 overflow-hidden">
     <div className="absolute inset-0 z-0">
       <img 
         alt="Hero background" 
         className="w-full h-full object-cover opacity-40 mix-blend-overlay" 
-        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDA8vkBLF1zbzQ_gtxlEdWEtDBThIkBv3gNmsBqxbG4WTHEy-XmpPY7754vUHIG3wYG-D2QCiuJd29lyVTMIg3B7Z70txG-n8r11Vt_JCzXrPYQAlrPLK0iUS9nu8A5fdvnr7594GPcdMiULy9UabT-FxRbHPnvzQf2suRgF0PojfzJjoHHQzPkHPmVfvglR837xI9l-qQyJ2dbglRGaW3PIruTS8U2HxNHJLrtky8sd_w83A5p_HU1VTPV7hb2pynakjZl3p7XEyMw" 
+        src={`${base}Media.jfif`}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-brand-surface via-transparent to-transparent" />
     </div>
@@ -71,7 +73,8 @@ const Hero = () => (
       </div>
     </motion.div>
   </section>
-);
+  );
+};
 
 const About = () => (
   <section className="px-6 md:px-12 py-24 flex flex-col gap-8 text-center max-w-4xl mx-auto">
@@ -193,36 +196,61 @@ const Facilities = () => {
 };
 
 const Gallery = () => {
+  const base = import.meta.env.BASE_URL;
   const images = [
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuBS67RTbgVFG7iDsdKzFZsYp_5Y2wYkfIb3_GyLme1Uw_p7oxNSNPF5QVL7tIQ2iqWrMmiKumGmgIvzSKMpv8psgvCUNz2sztOvoBFeDb9m5QBSbRnTITU1DGd98oR6d8q4bCBpxpVY56VMmEPEUpaR3hUEWAfo7bQYcq1HEheLNWFo6OTAdPc0hzd8BEavKZH7o6iWGECWsYer9hcOVI57LNUHcMuQc3SJOp4mdOICuExdB1t4U__nyFIjGpaL25UXTJI4wJO5PSmX",
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuBFocd3pEHF4vGaIUbbCPXkAPHRkLSvPc6gDqI5G7Yu513jb5w_h--XNnuDzdoUa1e7PZJlxS9l_CpftFuiYVC7-ydSLIEMGd5cpTKBUVjbzipCsbfmpDiJD_TzBaJ54L2UA5JCht5ZNm-b9IA21mqeX2M812jSZyt-ixDuB-U0H996n20x9hhI2V5cIHhLcy0qvYUrXzV2n6YFPUNY1clKcR5J9fgVhPOQwzf1zLAvE23ynphLCnoLF-xuU935vg0JsPbR-hdleRXb",
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuD3H4EBXT7Cl8u65EJ5ln3HJLSmb3cBo6Yh4jkOzy-9Y53v4dP2S33Wm2WoYqOJQW831ISd18BY7jxA1nl9aCjB1FTqYnYcOvaWbZsk6jTlPrvOK8MfPUd0Z-kqzXladLB3eCek824s7F4X5Ohv6eTUR4lcBIKl3_sZM41EgoNcLEKN2x0aoMFZV8AmDgsFPcjTp52OaSMUwmPLhTnqMLL6UHSxiCuLpXtzaMqjzYuyl4TauXgISqZvSS_hMZo3ljFre1JpfvFgz1ZI",
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuC8KJ6H4KNnIBSi3ioo1RHFIalXojKO1vTDbeTC0GAule1ACQcQNhPhaj0r15yR_znSTN3ACIbAreO7ow-LGkibWscltFUAoVAt8GyrlDcvmSnrSlqeKyBeaj1dYMwwus6zVAUGzhzvOHDQ5yuyO5T9pVCq6QZfJWB3fU9YZFmAKooKWZ_O831106KM90AtuT9S0j2k33HiUL-0-y0Mj9Ajc0ViTFv0xxLxYlNnOELk1GwtqNKTDjBOSOt3QBrc9lgMMcFtaWLSaDgz",
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuA_ZTgvztzkfk8M0_1AClNgg7gwJ7KHDk2t0FNIIZnDpgHayClynJalolFtPW0yFXF-JPfX4Zi6s9Eo_Neyugw_6Umm2xLwx5tYHYBSBBSWCNZik0mqpUQjH2GRmL7AMpSPICRCbmjrdo30sL64MKGDbc62Dz-yej2ybSaLzxnNgLzYbaahE4lVrlcwDA1P8WXzY1EDmkZbAQAGZ8gwS-e3W0_N_PfbQJH2zzaQRW-RZ5oDD_VfklJnK92SblVHhUlnlumZvnDBpu3x",
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuDvdtDBSWNRtXjUVr7dnj0vz1AnbmkgbOPiJkkhmMkxEVclP4E1bFiu5kCQ1Vyik8SUQrGGCB301xP8cZe8T-O1wcrtJHr6ekorunyCxAMEr9mtq9j0AlPnLT4szWH9rShSVd-wNh4cGR7zaRAEUBdwgYZqoVVZM49r3LHEhshgPTuI7-oSHnR-lXSPb27SOakXG_TNQlTXJWJFdk6MkFHzk2M68nfvzDe6sEJnKgHnEThCQJP76LNMNXoWi6YPPQg3Dzgt4z1Ohk0z"
+    `${base}Media (2).jfif`,
+    `${base}Media (3).jfif`,
+    `${base}Media (4).jfif`,
   ];
 
   return (
-    <section className="px-6 md:px-12 py-24 flex flex-col gap-12 max-w-6xl mx-auto w-full">
-      <h2 className="text-4xl md:text-5xl font-black text-white text-center uppercase tracking-tighter">Gallery</h2>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-        {images.map((src, i) => (
-          <motion.div 
-            key={i}
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ delay: i * 0.05 }}
-            viewport={{ once: true }}
-            className="aspect-square bg-brand-charcoal rounded-xl overflow-hidden relative group cursor-pointer border border-brand-outline/10"
-          >
-            <img 
-              alt={`Gym ${i}`} 
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100" 
-              src={src} 
-            />
-            <div className="absolute inset-0 bg-brand-red/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-          </motion.div>
-        ))}
+    <section className="px-6 md:px-12 py-24 flex flex-col gap-14 max-w-7xl mx-auto w-full">
+      <div className="text-center space-y-4">
+        <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter">
+          Gallery
+        </h2>
+
+        <p className="text-brand-on-surface-variant max-w-2xl mx-auto text-lg">
+          Premium machines. Serious training environment. Built for strength.
+        </p>
+      </div>
+
+      {/* Bento Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+
+        {/* Image 1 - full width top */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="md:col-span-2 rounded-2xl overflow-hidden relative h-72 md:h-96"
+        >
+          <img src={images[0]} alt="Gym 1" className="w-full h-full object-cover" />
+        </motion.div>
+
+        {/* Image 2 - bottom left */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1, duration: 0.5 }}
+          viewport={{ once: true }}
+          className="rounded-2xl overflow-hidden relative h-64 md:h-80"
+        >
+          <img src={images[1]} alt="Gym 2" className="w-full h-full object-cover" />
+        </motion.div>
+
+        {/* Image 3 - bottom right */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15, duration: 0.5 }}
+          viewport={{ once: true }}
+          className="rounded-2xl overflow-hidden relative h-64 md:h-80"
+        >
+          <img src={images[2]} alt="Gym 3" className="w-full h-full object-cover" />
+        </motion.div>
+
       </div>
     </section>
   );
@@ -330,7 +358,7 @@ const Contact = () => (
           </div>
           <div>
             <p className="font-bold text-white text-lg">Address</p>
-            <p className="font-medium mt-1">123 Muscle Ave<br />Springfield, SP 12345</p>
+            <p className="font-medium mt-1">506, AMK Arcade, Saptagiri Colony Mangalam,<br />12-505, Mangalam, Andhra Pradesh 517507</p>
           </div>
         </div>
         
@@ -340,7 +368,7 @@ const Contact = () => (
           </div>
           <div>
             <p className="font-bold text-white text-lg">Phone</p>
-            <p className="font-medium mt-1">(555) 123-4567</p>
+            <p className="font-medium mt-1">+91 93939 36781</p>
           </div>
         </div>
         
@@ -350,11 +378,19 @@ const Contact = () => (
           </div>
           <div>
             <p className="font-bold text-white text-lg mb-2">Hours</p>
-            <div className="grid grid-cols-2 gap-x-8 gap-y-1 font-medium">
-              <span>Mon-Fri:</span>
-              <span className="text-white">5 AM - 11 PM</span>
-              <span>Sat-Sun:</span>
-              <span className="text-white">7 AM - 8 PM</span>
+            <div className="flex flex-col gap-1 font-medium">
+              <div className="flex justify-between gap-12">
+                <span>Mon - Sat</span>
+                <span className="text-white">5:00 AM – 10:00 AM</span>
+              </div>
+              <div className="flex justify-between gap-12">
+                <span></span>
+                <span className="text-white">5:00 PM – 10:00 PM</span>
+              </div>
+              <div className="flex justify-between gap-12 mt-1">
+                <span>Sunday</span>
+                <span className="text-white">5:00 AM – 10:00 AM</span>
+              </div>
             </div>
           </div>
         </div>
@@ -363,10 +399,10 @@ const Contact = () => (
     
     <div className="flex-1 w-full h-[450px] bg-brand-charcoal border border-brand-outline/20 rounded-3xl relative overflow-hidden group">
       <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d102948.33089069755!2d-93.36442658!3d37.19323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87cf62f745c8983f%3A0x6ec0d267860477!2sSpringfield%2C%20MO!5e0!3m2!1sen!2sus!4v1714995000000!5m2!1sen!2sus" 
+        src="https://maps.google.com/maps?q=vijay+beastline+gym+mangalam+tirupati&output=embed" 
         width="100%" 
         height="100%" 
-        style={{ border: 0, filter: 'grayscale(1) invert(0.9) contrast(1.2)' }} 
+        style={{ border: 0 }} 
         allowFullScreen 
         loading="lazy" 
         referrerPolicy="no-referrer-when-downgrade"
