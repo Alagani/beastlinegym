@@ -1,28 +1,29 @@
 import { motion, AnimatePresence } from 'motion/react';
-import { 
-  Dumbbell, 
-  Phone, 
-  MessageCircle, 
-  Zap, 
-  MapPin, 
-  Clock, 
-  ChevronDown, 
-  Quote, 
+import {
+  Dumbbell,
+  Phone,
+  MessageCircle,
+  Zap,
+  MapPin,
+  Clock,
+  ChevronDown,
+  Quote,
   TrendingUp,
   Award,
   Users
 } from 'lucide-react';
 import { useState } from 'react';
+import Chatbot from './Chatbot';
 
 // --- Components ---
 
 const PHONE = '919393936781';
 
 const Navbar = () => (
-  <header className="fixed top-0 w-full z-50 bg-brand-surface/80 backdrop-blur-md border-b border-brand-outline/30 flex justify-between items-center px-6 md:px-12 h-20">
+  <header className="fixed top-0 w-full z-40 bg-brand-surface/80 backdrop-blur-md border-b border-brand-outline/30 flex justify-between items-center px-6 md:px-12 h-20">
     <div className="flex items-center gap-2">
       <Dumbbell className="text-brand-red w-8 h-8" />
-      <span className="font-headline text-xl md:text-2xl font-extrabold text-white tracking-tighter">BEASTLINE</span>
+      <span className="font-headline text-xl md:text-2xl font-extrabold text-white tracking-tighter">Vj's Beastline</span>
     </div>
     <a href={`tel:+${PHONE}`} className="bg-brand-red text-white font-bold text-sm px-6 py-2.5 rounded-full hover:brightness-110 transition-all active:scale-95">
       CALL NOW
@@ -33,52 +34,52 @@ const Navbar = () => (
 const Hero = () => {
   const base = import.meta.env.BASE_URL;
   return (
-  <section className="relative min-h-[90vh] flex flex-col justify-end px-6 md:px-12 pb-16 overflow-hidden">
-    <div className="absolute inset-0 z-0">
-      <img 
-        alt="Hero background" 
-        className="w-full h-full object-cover opacity-40 mix-blend-overlay" 
-        src={`${base}Media.jfif`}
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-brand-surface via-transparent to-transparent" />
-    </div>
-    
-    <motion.div 
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      className="relative z-10 flex flex-col gap-6 max-w-4xl"
-    >
-      <h1 className="text-6xl md:text-8xl font-black text-white leading-[0.9] uppercase">
-        BEASTLINE
-      </h1>
-      <p className="text-lg md:text-xl text-brand-on-surface-variant max-w-xl font-medium">
-        Affordable Gym in Springfield. No excuses. Just results. Join the community that builds champions.
-      </p>
-      
-      <div className="flex flex-col sm:flex-row gap-4 pt-4">
-        <a href={`tel:+${PHONE}`} className="bg-brand-red text-white font-bold px-8 py-4 rounded-full flex justify-center items-center gap-2 hover:brightness-110 transition-all active:scale-95 shadow-xl shadow-brand-red/10">
-          <Phone className="w-5 h-5" />
-          Call Now
-        </a>
-        <a
-          href={`https://wa.me/${PHONE}?text=Hi%2C%20I%27m%20interested%20in%20joining%20BEASTLINE%20Gym!`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold px-8 py-4 rounded-full flex justify-center items-center gap-2 hover:bg-white/20 transition-all active:scale-95"
-        >
-          <MessageCircle className="w-5 h-5 text-[#25D366]" />
-          WhatsApp
-        </a>
+    <section className="relative min-h-[90vh] flex flex-col justify-end px-6 md:px-12 pb-16 overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <img
+          alt="Hero background"
+          className="w-full h-full object-cover opacity-40 mix-blend-overlay"
+          src={`${base}Media.jfif`}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-surface via-transparent to-transparent" />
       </div>
-    </motion.div>
-  </section>
+
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="relative z-10 flex flex-col gap-6 max-w-4xl"
+      >
+        <h1 className="text-6xl md:text-8xl font-black text-white leading-[0.9] uppercase">
+          Vj's Beastline
+        </h1>
+        <p className="text-lg md:text-xl text-brand-on-surface-variant max-w-xl font-medium">
+          Affordable Gym in Springfield. No excuses. Just results. Join the community that builds champions.
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-4 pt-4">
+          <a href={`tel:+${PHONE}`} className="bg-brand-red text-white font-bold px-8 py-4 rounded-full flex justify-center items-center gap-2 hover:brightness-110 transition-all active:scale-95 shadow-xl shadow-brand-red/10">
+            <Phone className="w-5 h-5" />
+            Call Now
+          </a>
+          <a
+            href={`https://wa.me/${PHONE}?text=Hi%2C%20I%27m%20interested%20in%20joining%20Vj's Beastline%20Gym!`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold px-8 py-4 rounded-full flex justify-center items-center gap-2 hover:bg-white/20 transition-all active:scale-95"
+          >
+            <MessageCircle className="w-5 h-5 text-[#25D366]" />
+            WhatsApp
+          </a>
+        </div>
+      </motion.div>
+    </section>
   );
 };
 
 const About = () => (
   <section className="px-6 md:px-12 py-24 flex flex-col gap-8 text-center max-w-4xl mx-auto">
-    <motion.h2 
+    <motion.h2
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
@@ -86,14 +87,14 @@ const About = () => (
     >
       About Us
     </motion.h2>
-    <motion.p 
+    <motion.p
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.2 }}
       viewport={{ once: true }}
       className="text-lg md:text-xl text-brand-on-surface-variant leading-relaxed font-medium"
     >
-      Welcome to BEASTLINE, Springfield's premier affordable fitness destination. We believe that top-tier equipment and a supportive community shouldn't break the bank. Whether you're a seasoned athlete or just starting your fitness journey, you'll find a welcoming environment dedicated to helping you achieve your goals. No gimmicks, just a pure passion for fitness.
+      Welcome to Vj's Beastline, Springfield's premier affordable fitness destination. We believe that top-tier equipment and a supportive community shouldn't break the bank. Whether you're a seasoned athlete or just starting your fitness journey, you'll find a welcoming environment dedicated to helping you achieve your goals. No gimmicks, just a pure passion for fitness.
     </motion.p>
   </section>
 );
@@ -110,7 +111,7 @@ const Pricing = () => {
       <h2 className="text-4xl md:text-5xl font-black text-white text-center">Membership Plans</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {plans.map((plan, i) => (
-          <motion.div 
+          <motion.div
             key={plan.name}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -137,9 +138,9 @@ const Pricing = () => {
                 <span className="text-lg text-brand-on-surface-variant font-medium ml-1">{plan.period}</span>
               </div>
               {plan.sub && (
-                <motion.div 
+                <motion.div
                   initial={plan.sub.includes('SAVE') ? { scale: 0.95, opacity: 0.8 } : {}}
-                  animate={plan.sub.includes('SAVE') ? { 
+                  animate={plan.sub.includes('SAVE') ? {
                     scale: [0.95, 1.05, 0.95],
                     opacity: [0.8, 1, 0.8],
                   } : {}}
@@ -173,7 +174,7 @@ const Facilities = () => {
       <h2 className="text-4xl md:text-5xl font-black text-white text-center">Facilities</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl w-full">
         {items.map((item, i) => (
-          <motion.div 
+          <motion.div
             key={item.title}
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -268,7 +269,7 @@ const Testimonials = () => {
       <h2 className="text-4xl md:text-5xl font-black text-white text-center">Member Stories</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {stories.map((story, i) => (
-          <motion.div 
+          <motion.div
             key={i}
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -293,10 +294,10 @@ const Testimonials = () => {
 
 const FAQItem = ({ question, answer }: { question: string, answer: string }) => {
   const [isOpen, setIsOpen] = useState(false);
-  
+
   return (
     <div className="bg-brand-charcoal border border-brand-outline/20 rounded-xl overflow-hidden">
-      <button 
+      <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full text-left p-6 flex justify-between items-center bg-transparent transition-colors hover:bg-white/5"
       >
@@ -305,7 +306,7 @@ const FAQItem = ({ question, answer }: { question: string, answer: string }) => 
       </button>
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -323,25 +324,25 @@ const FAQ = () => (
   <section className="px-6 md:px-12 py-24 flex flex-col gap-12 max-w-3xl mx-auto w-full">
     <h2 className="text-4xl md:text-5xl font-black text-white text-center">FAQ</h2>
     <div className="flex flex-col gap-4">
-      <FAQItem 
-        question="What are your operating hours?" 
-        answer="We are open Monday through Friday from 5:00 AM to 11:00 PM, and on weekends from 7:00 AM to 8:00 PM." 
+      <FAQItem
+        question="What are your operating hours?"
+        answer="We are open Monday through Friday from 5:00 AM to 11:00 PM, and on weekends from 7:00 AM to 8:00 PM."
       />
-      <FAQItem 
-        question="Do you offer personal training?" 
-        answer="Yes! We have a team of certified personal trainers ready to help you reach your goals. You can book a free consultation at the front desk." 
+      <FAQItem
+        question="Do you offer personal training?"
+        answer="Yes! We have a team of certified personal trainers ready to help you reach your goals. You can book a free consultation at the front desk."
       />
-      <FAQItem 
-        question="Is there a joining fee?" 
-        answer="We believe in transparency. Our joining fees are minimal and often waived during special promotion periods. Check our current offers!" 
+      <FAQItem
+        question="Is there a joining fee?"
+        answer="We believe in transparency. Our joining fees are minimal and often waived during special promotion periods. Check our current offers!"
       />
-      <FAQItem 
-        question="Are lockers and showers available?" 
-        answer="Yes, we provide clean, fully equipped locker rooms with secure lockers and private showers for all members." 
+      <FAQItem
+        question="Are lockers and showers available?"
+        answer="Yes, we provide clean, fully equipped locker rooms with secure lockers and private showers for all members."
       />
-      <FAQItem 
-        question="Can I freeze my membership if I travel?" 
-        answer="Absolutely. You can freeze your membership for up to 3 months per year for travel or medical reasons." 
+      <FAQItem
+        question="Can I freeze my membership if I travel?"
+        answer="Absolutely. You can freeze your membership for up to 3 months per year for travel or medical reasons."
       />
     </div>
   </section>
@@ -361,7 +362,7 @@ const Contact = () => (
             <p className="font-medium mt-1">506, AMK Arcade, Saptagiri Colony Mangalam,<br />12-505, Mangalam, Andhra Pradesh 517507</p>
           </div>
         </div>
-        
+
         <div className="flex items-start gap-4 text-brand-on-surface-variant">
           <div className="bg-brand-red/10 p-3 rounded-xl border border-brand-red/20">
             <Phone className="text-brand-red w-6 h-6" />
@@ -371,7 +372,7 @@ const Contact = () => (
             <p className="font-medium mt-1">+91 93939 36781</p>
           </div>
         </div>
-        
+
         <div className="flex items-start gap-4 text-brand-on-surface-variant">
           <div className="bg-brand-red/10 p-3 rounded-xl border border-brand-red/20">
             <Clock className="text-brand-red w-6 h-6" />
@@ -396,15 +397,15 @@ const Contact = () => (
         </div>
       </div>
     </div>
-    
+
     <div className="flex-1 w-full h-[450px] bg-brand-charcoal border border-brand-outline/20 rounded-3xl relative overflow-hidden group">
-      <iframe 
-        src="https://maps.google.com/maps?q=vijay+beastline+gym+mangalam+tirupati&output=embed" 
-        width="100%" 
-        height="100%" 
-        style={{ border: 0 }} 
-        allowFullScreen 
-        loading="lazy" 
+      <iframe
+        src="https://maps.google.com/maps?q=vijay+Vj's Beastline+gym+mangalam+tirupati&output=embed"
+        width="100%"
+        height="100%"
+        style={{ border: 0 }}
+        allowFullScreen
+        loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
       />
       <div className="absolute inset-0 pointer-events-none border border-brand-red/10 rounded-3xl" />
@@ -416,19 +417,20 @@ const Footer = () => (
   <footer className="w-full py-20 bg-brand-charcoal/50 border-t border-brand-outline/20 flex flex-col items-center text-center px-6 gap-10">
     <div className="flex items-center gap-2">
       <Dumbbell className="text-brand-red w-8 h-8" />
-      <span className="font-headline text-3xl font-extrabold text-white tracking-tighter">BEASTLINE</span>
+      <span className="font-headline text-3xl font-extrabold text-white tracking-tighter">Vj's Beastline</span>
     </div>
-    
+
     <div className="flex flex-wrap justify-center gap-x-12 gap-y-4 font-bold text-brand-on-surface-variant">
       <a className="hover:text-brand-red transition-colors" href="#privacy">Privacy Policy</a>
       <a className="hover:text-brand-red transition-colors" href="#terms">Terms of Service</a>
       <a className="hover:text-brand-red transition-colors" href="#location">Location</a>
       <a className="hover:text-brand-red transition-colors" href="#schedule">Class Schedule</a>
     </div>
-    
+
     <div className="text-brand-on-surface-variant/60 font-medium max-w-md">
-      © {new Date().getFullYear()} BEASTLINE GYM.<br />
+      © {new Date().getFullYear()} Vj's Beastline GYM.<br />
       <span className="text-brand-red font-black tracking-widest text-xs mt-4 block">DISCIPLINE IS FREEDOM</span>
+      <span className="text-brand-on-surface-variant/80 block mt-2">Developed by A. Jagadeesh</span>
     </div>
   </footer>
 );
@@ -448,6 +450,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+      <Chatbot />
     </div>
   );
 }
