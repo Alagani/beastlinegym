@@ -2,7 +2,6 @@ import { motion, AnimatePresence } from 'motion/react';
 import {
   Dumbbell,
   Phone,
-  MessageCircle,
   Zap,
   MapPin,
   Clock,
@@ -67,7 +66,7 @@ const Hero = () => {
             rel="noopener noreferrer"
             className="bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold px-8 py-4 rounded-full flex justify-center items-center gap-2 hover:bg-white/20 transition-all active:scale-95"
           >
-            <MessageCircle className="w-5 h-5 text-[#25D366]" />
+            <i className="fa-brands fa-whatsapp text-[#25D366] text-xl" aria-hidden="true"></i>
             WhatsApp
           </a>
         </div>
