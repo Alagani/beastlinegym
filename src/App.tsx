@@ -429,7 +429,7 @@ const Footer = () => (
     <div className="text-brand-on-surface-variant/60 font-medium max-w-md">
       © {new Date().getFullYear()} Vj's Beastline GYM.<br />
       <span className="text-brand-red font-black tracking-widest text-xs mt-4 block">DISCIPLINE IS FREEDOM</span>
-      <span className="text-brand-on-surface-variant/80 block mt-2">Developed by A. Jagadeesh</span>
+      <span className="text-brand-on-surface-variant/80 block mt-2">Developed by Alagani Jagadeesh</span>
     </div>
   </footer>
 );
