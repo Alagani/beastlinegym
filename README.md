@@ -68,11 +68,14 @@ GitHub Actions workflow: `.github/workflows/deploy.yml`
 
 Stages:
 
-1. **Typecheck:** installs dependencies with `npm ci` and runs `npm run lint`.
-2. **Build:** installs dependencies with `npm ci` and runs `npm run build`.
-3. **Deploy:** publishes the `dist` artifact to GitHub Pages.
+1. **Quality:** installs dependencies with `npm ci` and runs `npm run lint`.
+2. **Test:** runs `npm test` when a test script exists; otherwise the stage is skipped safely.
+3. **Security Audit:** runs `npm audit --omit=dev --audit-level=high`.
+4. **Build:** creates the production `dist` output and uploads it as a build artifact.
+5. **Deployment Gate:** allows deployment only for pushes to the `main` branch.
+6. **Deploy:** publishes the approved `dist` artifact to GitHub Pages.
 
-Pull requests run the typecheck and build stages only. Pushes to `main` run all stages and deploy to GitHub Pages.
+Pull requests run quality, test, security, and build stages only. Pushes to `main` run all stages and deploy to GitHub Pages.
 
 ## SEO Notes
 

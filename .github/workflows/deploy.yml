@@ -13,12 +13,12 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
-  typecheck:
-    name: Stage 1 - Typecheck
+  quality:
+    name: Stage 1 - Quality
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -36,9 +36,54 @@ jobs:
       - name: Run TypeScript checks
         run: npm run lint
 
+  test:
+    name: Stage 2 - Test
+    needs: quality
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests if configured
+        run: |
+          if npm pkg get scripts.test | grep -qv null; then
+            npm test
+          else
+            echo "No test script configured. Skipping test stage."
+          fi
+
+  security:
+    name: Stage 3 - Security Audit
+    needs: quality
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Audit production dependencies
+        run: npm audit --omit=dev --audit-level=high
+
   build:
-    name: Stage 2 - Build
-    needs: typecheck
+    name: Stage 4 - Build
+    needs: [test, security]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -56,25 +101,45 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Setup Pages
-        if: github.event_name != 'pull_request'
-        uses: actions/configure-pages@v4
-
-      - name: Upload artifact
-        if: github.event_name != 'pull_request'
-        uses: actions/upload-pages-artifact@v3
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
         with:
-          path: "./dist"
+          name: production-build
+          path: dist
+          if-no-files-found: error
+
+  deployment-gate:
+    name: Stage 5 - Deployment Gate
+    needs: build
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Confirm production deployment
+        run: echo "Deployment approved for main branch."
 
   deploy:
-    name: Stage 3 - Deploy
-    if: github.event_name != 'pull_request'
-    needs: build
+    name: Stage 6 - Deploy
+    needs: deployment-gate
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: production-build
+          path: dist
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
