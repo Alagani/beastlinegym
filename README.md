@@ -62,6 +62,18 @@ The deployed URL is expected to be:
 https://Alagani.github.io/beastlinegym/
 ```
 
+## CI/CD Pipeline
+
+GitHub Actions workflow: `.github/workflows/deploy.yml`
+
+Stages:
+
+1. **Typecheck:** installs dependencies with `npm ci` and runs `npm run lint`.
+2. **Build:** installs dependencies with `npm ci` and runs `npm run build`.
+3. **Deploy:** publishes the `dist` artifact to GitHub Pages.
+
+Pull requests run the typecheck and build stages only. Pushes to `main` run all stages and deploy to GitHub Pages.
+
 ## SEO Notes
 
 The site includes:
