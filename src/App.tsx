@@ -14,10 +14,9 @@ import {
 } from 'lucide-react';
 import { useState } from 'react';
 import Chatbot from './Chatbot';
+import { PHONE } from './constants';
 
 // --- Components ---
-
-const PHONE = '919393936781';
 
 const Navbar = () => (
   <header className="fixed top-0 w-full z-40 bg-brand-surface/80 backdrop-blur-md border-b border-brand-outline/30 flex justify-between items-center px-6 md:px-12 h-20">
@@ -54,7 +53,7 @@ const Hero = () => {
           Vj's Beastline
         </h1>
         <p className="text-lg md:text-xl text-brand-on-surface-variant max-w-xl font-medium">
-          Affordable Gym in Springfield. No excuses. Just results. Join the community that builds champions.
+          Affordable gym in Mangalam, Tirupati. No excuses. Just results. Join the community that builds champions.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -94,7 +93,7 @@ const About = () => (
       viewport={{ once: true }}
       className="text-lg md:text-xl text-brand-on-surface-variant leading-relaxed font-medium"
     >
-      Welcome to Vj's Beastline, Springfield's premier affordable fitness destination. We believe that top-tier equipment and a supportive community shouldn't break the bank. Whether you're a seasoned athlete or just starting your fitness journey, you'll find a welcoming environment dedicated to helping you achieve your goals. No gimmicks, just a pure passion for fitness.
+      Welcome to Vj's Beastline, Mangalam's affordable fitness destination in Tirupati. We believe that top-tier equipment and a supportive community shouldn't break the bank. Whether you're a seasoned athlete or just starting your fitness journey, you'll find a welcoming environment dedicated to helping you achieve your goals. No gimmicks, just a pure passion for fitness.
     </motion.p>
   </section>
 );
