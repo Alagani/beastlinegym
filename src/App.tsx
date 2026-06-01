@@ -49,7 +49,7 @@ const Hero = () => {
         className="relative z-10 flex flex-col gap-6 max-w-4xl"
       >
         <h1 className="text-6xl md:text-8xl font-black text-white leading-[0.9] uppercase">
-          Vj's Beastline
+          Vj's Beastline GYM
         </h1>
         <p className="text-lg md:text-xl text-brand-on-surface-variant max-w-xl font-medium">
           Affordable gym in Mangalam, Tirupati. No excuses. Just results. Join the community that builds champions.
@@ -83,7 +83,7 @@ const About = () => (
       viewport={{ once: true }}
       className="text-4xl md:text-5xl font-black text-white"
     >
-      About Us
+      About Vj's Beastline GYM
     </motion.h2>
     <motion.p
       initial={{ opacity: 0, y: 20 }}
@@ -92,7 +92,7 @@ const About = () => (
       viewport={{ once: true }}
       className="text-lg md:text-xl text-brand-on-surface-variant leading-relaxed font-medium"
     >
-      Welcome to Vj's Beastline, Mangalam's affordable fitness destination in Tirupati. We believe that top-tier equipment and a supportive community shouldn't break the bank. Whether you're a seasoned athlete or just starting your fitness journey, you'll find a welcoming environment dedicated to helping you achieve your goals. No gimmicks, just a pure passion for fitness.
+      Vj's Beastline GYM is a fitness center located in Mangalam, Tirupati. At Vj's Beastline GYM, we provide strength training, cardio workouts, personal training, and transformation programs for all fitness levels.
     </motion.p>
   </section>
 );
@@ -119,7 +119,7 @@ const LocalSEO = () => {
         <div className="max-w-3xl">
           <h2 className="text-4xl md:text-5xl font-black text-white">Gym in Mangalam, Tirupati</h2>
           <p className="mt-5 text-lg text-brand-on-surface-variant leading-relaxed font-medium">
-            Vj's Beastline Gym is built for people searching for a reliable, affordable gym in Mangalam and Tirupati. Visit us for strength training, cardio workouts, personal training guidance, and a disciplined fitness environment.
+            Vj's Beastline GYM is built for people searching for a reliable, affordable gym in Mangalam and Tirupati. Visit us for strength training, cardio workouts, personal training guidance, and a disciplined fitness environment.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -453,7 +453,7 @@ const Footer = () => (
   <footer className="w-full py-20 bg-brand-charcoal/50 border-t border-brand-outline/20 flex flex-col items-center text-center px-6 gap-10">
     <div className="flex items-center gap-2">
       <Dumbbell className="text-brand-red w-8 h-8" />
-      <span className="font-headline text-3xl font-extrabold text-white tracking-tighter">Vj's Beastline</span>
+      <span className="font-headline text-3xl font-extrabold text-white tracking-tighter">Vj's Beastline GYM</span>
     </div>
 
     <div className="flex flex-wrap justify-center gap-x-12 gap-y-4 font-bold text-brand-on-surface-variant">
