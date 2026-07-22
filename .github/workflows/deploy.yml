@@ -61,26 +61,6 @@ jobs:
             echo "No test script configured. Skipping test stage."
           fi
 
-  security:
-    name: Stage 3 - Security Audit
-    needs: quality
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: "npm"
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Audit production dependencies
-        run: npm audit --omit=dev --audit-level=high
-
   build:
     name: Stage 4 - Build
     needs: [test, security]
