@@ -5,7 +5,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   // Use a relative base so the built app works when served from any path
-  base: '/beastlinegym/',
+  base: '/',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
